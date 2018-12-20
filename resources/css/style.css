@@ -19,9 +19,7 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-.clearfix {
-  zoom: 1
-}
+.clearfix {zoom: 1;}
 
 /* Review floats and how to clear them - This clear is tied to the gallery section*/
 .clearfix:after {
@@ -45,7 +43,6 @@ html {
 section {
   padding: 65px 0;
   /* bottom padding may need revisions */
-
 }
 
 .box {
@@ -68,7 +65,7 @@ section {
   font-size: 90%;
 }
 
-/*----ICONS----*/
+/*------ICONS------*/
 
 .icon-lg {
   font-size: 325%;
@@ -80,10 +77,42 @@ section {
 .icon-sm {
   font-size: 120%;
   display: inline-block;
+  width: 30px;
   color: #E67E22;
+  text-align: center;
+
+/*Their Solution to vertical align*/
+/*
+  line-height: 120%;
+  vertical-align: middle;
+  margin-top: -2px;
+*/
+
+
+   /*My solution*/
   padding-bottom: 5px;
   padding-right: 10px;
+  
 }
+
+/*------LINKS------*/
+a:link,
+a:visited {
+  color: #E67E22;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #E67E22;
+}
+
+
+a:hover,
+a:active {
+  color: #555;
+  border-bottom: 1px solid transparent;
+  transition: color 0.4s;
+}
+
+
 
 /*===============================================================================================
                                         HEADINGS
@@ -128,24 +157,26 @@ h3 {
   letter-spacing: 0;
 }
 
+
 /*===============================================================================================
                                         BUTTONS
 =================================================================================================*/
 
 .btn:link,
-.btn:visited {
+.btn:visited, 
+input[type=submit] {
   display: inline-block;
   padding: 10px 30px;
   font-weight: 300;
   text-decoration: none;
   border-radius: 200px;
-  color: #FFF;
   transition: background-color 0.25s, border 0.25s, color 0.25s;
 }
 
 
 .btn-full:link,
-.btn-full:visited {
+.btn-full:visited,
+input[type=submit] {
   background-color: #E67E22;
   border: 1px solid #E67E22;
   color: #FFF;
@@ -155,24 +186,25 @@ h3 {
 .btn-ghost:link,
 .btn-ghost:visited {
   border: 1px solid #E67E22;
-  color: #E67E22;
 }
 
 .btn:hover,
-.btn:active {
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
   background-color: #CF6D17;
+  
 }
 
 .btn-full:link,
 .btn-full:visited {
   border: 1px solid #CF6D17;
-
 }
 
-.btn-ghost:link,
-.btn-ghost:visited {
-  border: 1px solid #CF6D17;
+.btn-ghost:hover,
+.btn-ghost:active {
   color: #FFF;
+  border: 1px solid #CF6D17;
 }
 
 /*===============================================================================================
@@ -184,6 +216,7 @@ header {
   background-size: cover;
   background-position: center;
   height: 100vh;
+  background-attachment: fixed;
 }
 
 .hero-text-box {
@@ -229,7 +262,7 @@ header {
 .main-nav li a:active {
   border-bottom: 2px solid #CF6D17;
   padding-bottom: 5px;
-  transition: border-bottom .2s;
+  transition: border-bottom .1s;
 }
 
 
@@ -250,7 +283,6 @@ header {
 
 .section-meals {
   padding: 0;
-
 }
 
 .meals-showcase {
@@ -274,19 +306,16 @@ header {
   /* Parent Container */
   margin: 0;
   overflow: hidden;
-  background-color: #000;
+  background-color: rgb(0, 0, 0); /*Ask: shouldn't this completely black out the images*/
 }
 
 .meal-photo img {
-  opacity: 0.7;
+  opacity: 0.5;
   height: auto;
   width: 100%;
   /* set so the child is the same same width as parent */
   transform: scale(1.15);
   transition: transform 0.5s;
-  opacity: 0.5s;
-
-
 }
 
 .meal-photo img:hover {
@@ -347,6 +376,12 @@ header {
   height: 50px;
   width: auto;
   margin-right: 10px;
+  margin-top: 18px; /* Aligned the phone with the buttons; May need adjusting */
+}
+
+.btn-app:link,
+.btn-app:visited{
+  border: none;
 }
 
 /*===============================================================================================
@@ -355,15 +390,208 @@ header {
 
 .cities-image {
   width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+
 }
 
-.city-features {}
+.city-features {
+ margin-bottom: 5px; 
+}
 
-.city-features a {
+/*===============================================================================================
+                                       TESTIMONIALS
+=================================================================================================*/
+
+.testimonials{
+background-image: linear-gradient(rgba(0, 0, 0, .8),rgba(0, 0, 0, .8)), url(img/back-customers.jpg);
+background-size:cover;
+color: white;
+background-attachment: fixed;
+}
+
+blockquote {
+  margin-top: 40px;
+  padding: 2%;
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+
+}
+
+blockquote::before{
+  content: "\201C"; /*ISO Entity: https://css-trick.com/snippets/html/glyphs*/
+  display: block;
+  font-size: 500%;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+
+cite{
+  margin-top: 25px;
+  font-size: 90%;  
+  display: block;
+}
+
+cite img{
+  height: 45px;
+  margin-right: 15px;
+  border-radius: 50%;
+  border: 2px solid #43baffde;
+  vertical-align: middle;
+}
+
+/*=============================================================================================== 
+                                       SUBSCRIPTIONS
+=================================================================================================*/
+
+.subscriptions{
+  background-color: #F4F4F4;
+}
+
+.plan-box{
+    background-color: #fff;
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 5px;
+    box-shadow: 0 2px 2px #e3e3e3;
+    
+}
+
+.plan-box div {
+    padding: 15px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.plan-box div:first-child {
+    background-color: #fcfcfc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child {
+    text-align: center;
+    border-bottom: 0;
+}
+
+.plan-box h3 {
+ margin: 0;
+}
+
+
+.price-plan {
+  font-size: 300%;
+  font-weight: 100; /* refers to google fonts sizing & is found in HTML <head> */
+  margin: 10px 0;
   color: #E67E22;
 }
 
-.city-features a:hover {
-  color: inherit;
-  transition: color .5s;
+.price-plan span {
+  font-size: 30%; /* 30% of the parent @ 300% */
 }
+
+.price-per-meal {
+    font-size: 80%;
+    font-weight: 300;
+}
+
+.plan-box ul {
+    list-style: none;
+    margin: 0; 
+    padding: 5px 0; 
+}
+
+/*=============================================================================================== 
+                                       CONTACT FORM
+=================================================================================================*/
+.contact-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+
+
+input[type=text], /* [ Attribute Selector ]  used here to NOT select "checkbox" and "textarea" */ 
+input[type=email],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+*:focus {outline:none;}
+
+input[type=submit],
+::placeholder {
+    font-family: 'Lato', 'Arial', sans-serif;
+}
+
+::placeholder,
+select {
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    color: #555;
+}
+
+/*=============================================================================================== 
+                                       footer
+=================================================================================================*/
+
+footer {
+    background-color: #333;
+    color: #555;
+    
+}
+
+footer ul{
+    padding-left:0;
+}
+
+.footer-nav {
+    float: left;
+}
+
+.social-links {
+    float: right;
+}
+
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    list-style: none;
+    text-decoration: none;
+    margin-right: 20px;
+    
+}
+
+.footer-nav li:last-child,
+.social-links li:last-child { 
+    margin-right: 0;
+}
+
+footer a:link,
+footer a:visited,
+footer a:active
+  {
+    color: #555;
+    text-decoration: none;
+    border: 0;
+}
+
+footer a:hover {
+    color: #E67E22;;
+
+}
+    
